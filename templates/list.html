@@ -1,0 +1,9 @@
+<h1>List for Guilds</h1>
+{% for section, guilds in sorted_list.items %}
+<h2>{{ section }}</h2>
+<ol>
+    {% for guild in guilds %}
+    <li>{{ guild }}</li>
+    {% endfor %}
+</ol>
+{% endfor %}
