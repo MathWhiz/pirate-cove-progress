@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from django.core.cache import cache
 
 ARTICLE_NAME = 'The_Keep:Pirate_Cove/Guilds_with_Inactive_Leaders'
-SECTIONS = ['Not Started', 'Unknown', 'In Progress', 'Finished', 'To Be Read Last Rites']
+SECTIONS = ['Not Started', 'Unknown', 'To Be Read Last Rites', 'In Progress', 'Finished']
 SECTION_MATCH = {
     'Not Started': lambda title: title.lower().startswith('not started'),
     'In Progress': lambda title: title.lower().startswith('in progress'),
@@ -42,7 +42,7 @@ def index(request):
         'chs': '500x300',
         'chf': 'bg,s,FFFFFF00',
         'chdl': '|'.join(SECTIONS),
-        'chco': 'D65151,E58C2D,E5C120,597C5E,626487',
+        'chco': 'e55050,e57550,e5c050,e5e550,50e550',
         'chd': 't:{}'.format(','.join([str(x) for x in section_numbers])),
         'chl': '|'.join([str(x) if x > 0 else '' for x in section_numbers]),
         'chli': '{} Guilds'.format(len(article_content)),
