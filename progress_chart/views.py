@@ -10,11 +10,11 @@ ARTICLE_NAME = 'The_Keep:Pirate_Cove/Guilds_with_Inactive_Leaders'
 SECTIONS = ['Not Started', 'Unknown', 'In Progress', 'Finished', 'To Be Read Last Rites']
 SECTION_MATCH = {
     'Not Started': lambda title: title.lower().startswith('not started'),
-    'Unknown': lambda title: (not title.lower().startswith('not started')) and (not title.lower().startswith('in progress')) and (not title.lower().startswith('finished')) and (not title.lower().startswith('to be read last rites')),
     'In Progress': lambda title: title.lower().startswith('in progress'),
     'Finished': lambda title: title.lower().startswith('finished'),
     'To Be Read Last Rites': lambda title: title.lower().startswith('to be read last rites'),
 }
+SECTION_MATCH['Unknown'] = lambda title: not (SECTION_MATCH['Not Started'](title) or SECTION_MATCH['In Progress'](title) or SECTION_MATCH['Finished'](title) or SECTION_MATCH['To Be Read Last Rites'](title))
 
 def groupGuilds():
     # Get details on 'The Keep:Pirate Cove/Guilds with Inactive Leaders' (article id)
