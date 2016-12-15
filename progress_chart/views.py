@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from django.core.cache import cache
 
 ARTICLE_NAME = 'The_Keep:Pirate_Cove/Guilds_with_Inactive_Leaders'
-SECTIONS = ['Not Started', 'Unknown', 'To Be Read Last Rites', 'In Progress', 'Finished']
+SECTIONS = ['Not Started', 'Unknown', 'In Progress', 'To Be Read Last Rites', 'Finished']
 SECTION_MATCH = {
     'Not Started': lambda title: title.lower().startswith('not started'),
     'In Progress': lambda title: title.lower().startswith('in progress'),
