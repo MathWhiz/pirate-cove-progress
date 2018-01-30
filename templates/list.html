@@ -3,7 +3,7 @@
 {% for section in sections %}
 <h2>{{ section }}</h2>
 <ol>
-    {% for guild in sorted_list.items|hash:section %}
+    {% for guild in sorted_list|hash:section %}
     <li>{{ guild }}</li>
     {% endfor %}
 </ol>
