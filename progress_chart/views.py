@@ -48,7 +48,9 @@ def index(request):
         'chli': '{} Guilds'.format(len(article_content)),
     }
     image = requests.get('https://image-charts.com/chart',params=chart_data)
-    return HttpResponse(image.content, content_type='image/png')
+    response = HttpResponse(image.content, content_type='image/png')
+    response['imgURL'] = image.url
+    return response
 
 def list(request):
     article_content, content_sections = groupGuilds()
