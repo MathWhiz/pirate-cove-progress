@@ -1,8 +1,9 @@
+{% load app_filters %}
 <h1>List for Guilds</h1>
-{% for section, guilds in sorted_list.items %}
+{% for section in sections %}
 <h2>{{ section }}</h2>
 <ol>
-    {% for guild in guilds %}
+    {% for guild in sorted_list.items|hash:section %}
     <li>{{ guild }}</li>
     {% endfor %}
 </ol>
